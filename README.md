@@ -1,35 +1,36 @@
-NimLime
-=======
+# Installation
 
-Super Nim Plugin for Sublime Text 2/3
+You can install this bundle in TextMate by opening the preferences and going to the bundles tab. After installation it will be automatically updated for you.
 
-Features
---------
+# General
 
-* Syntax highlighting
-* Jump to definition
-* Auto-Completion
-* Error checking and highlighting
-* Babel package manager integration
+* [Bundle Styleguide](http://kb.textmate.org/bundle_styleguide) — _before you make changes_
+* [Commit Styleguide](http://kb.textmate.org/commit_styleguide) — _before you send a pull request_
+* [Writing Bug Reports](http://kb.textmate.org/writing_bug_reports) — _before you report an issue_
 
-Installation
-------------
+# Thanks
 
-Clone the repository in your Sublime package directory
+Converted to TextMate from the [NimLime SubLime Plugin](https://github.com/Varriount/NimLime) by [Varriount](https://github.com/Varriount).
 
-Settings
---------
+# License
 
-See Preferences -> PackageSettings -> NimLime
+The MIT License (MIT)
 
-Autocompletion works per default in an on-demand mode.
-This means `ctrl+space` has to be pressed again to fetch Nim compiler completions.
-It can also be set into an immediate mode.
+Copyright (c) 2013 onionhammer (Erik O'Leary), Varriount (Clay Sweetser)
 
-If auto-completions don't work copy the `nim_update_completions` block from the NimLime
-default key bindings file to the user key bindings file.
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
 
-Checking the current file automatically on-save can be enabled through the setting `check_nim_on_save`.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-The path to the compiler can be configured through the setting `nim_compiler_executable`.
-Per default it is set to `nim`, which means that the compiler must be in your `PATH` for the plugin to work.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
