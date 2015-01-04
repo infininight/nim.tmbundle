@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>fileTypes</key>
@@ -208,6 +208,6 @@
 	<key>scopeName</key>
 	<string>source.nim_filter</string>
 	<key>uuid</key>
-	<string>c6396a10-4bb4-4929-aee5-1d893828b098</string>
+	<string>100470BA-533D-4D98-B3FE-986D770D5C2D</string>
 </dict>
 </plist>
