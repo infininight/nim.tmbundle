@@ -13,46 +13,70 @@
 	<key>patterns</key>
 	<array>
 		<dict>
-			<key>captures</key>
+			<key>begin</key>
+			<string>(^[ \t]+)?(?=##)</string>
+			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.comment.nim</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>invalid.illegal.TODO.nim</string>
+					<string>punctuation.whitespace.comment.leading.nim</string>
 				</dict>
 			</dict>
-			<key>comment</key>
-			<string>A documentation comment.</string>
-			<key>match</key>
-			<string>(##\s*(TODO|todo)?).*$\n?</string>
-			<key>name</key>
-			<string>comment.line.number-sign.doc-comment.nim</string>
+			<key>end</key>
+			<string>(?!\G)</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>##</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.nim</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\n</string>
+					<key>name</key>
+					<string>comment.line.number-sign.doc-comment.nim</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
-			<key>captures</key>
+			<key>begin</key>
+			<string>(^[ \t]+)?(?=#)</string>
+			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.comment.nim</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>invalid.illegal.TODO.nim</string>
+					<string>punctuation.whitespace.comment.leading.nim</string>
 				</dict>
 			</dict>
-			<key>comment</key>
-			<string>A regular comment</string>
-			<key>match</key>
-			<string>(#\s*(TODO|todo)?).*$\n?</string>
-			<key>name</key>
-			<string>comment.line.number-sign.comment.nim</string>
+			<key>end</key>
+			<string>(?!\G)</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>#</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.nim</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\n</string>
+					<key>name</key>
+					<string>comment.line.number-sign.nim</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -288,10 +312,26 @@
 			<string>string.quoted.single.nim</string>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>C</string>
-			<key>name</key>
-			<string>source.c.embedded.nim</string>
+			<key>begin</key>
+			<string>(^\s*)?(?=\{\.emit: ?""")</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.whitespace.embedded.leading.nim</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(?!\G)(\s*$\n?)?</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.whitespace.embedded.trailing.nim</string>
+				</dict>
+			</dict>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -307,19 +347,28 @@
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>comment.syntax.nim</string>
+							<string>punctuation.section.embedded.begin.nim</string>
 						</dict>
 					</dict>
+					<key>contentName</key>
+					<string>source.c</string>
 					<key>end</key>
-					<string>(""")\.?</string>
+					<string>(")""(\.\})?</string>
 					<key>endCaptures</key>
 					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.embedded.end.nim</string>
+						</dict>
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>comment.syntax.nim</string>
+							<string>source.c</string>
 						</dict>
 					</dict>
+					<key>name</key>
+					<string>meta.embedded.block.c</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -339,15 +388,31 @@
 			</array>
 		</dict>
 		<dict>
-			<key>comment</key>
-			<string>assembly</string>
-			<key>name</key>
-			<string>source.asm.embedded.nim</string>
+			<key>begin</key>
+			<string>(^\s*)?(?=asm """)</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.whitespace.embedded.leading.nim</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(?!\G)(\s*$\n?)?</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.whitespace.embedded.trailing.nim</string>
+				</dict>
+			</dict>
 			<key>patterns</key>
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>(asm )(""")</string>
+					<string>(asm) (""")</string>
 					<key>captures</key>
 					<dict>
 						<key>1</key>
@@ -358,19 +423,28 @@
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>comment.syntax.nim</string>
+							<string>punctuation.section.embedded.begin.nim</string>
 						</dict>
 					</dict>
+					<key>contentName</key>
+					<string>source.asm</string>
 					<key>end</key>
-					<string>"""</string>
+					<string>(")""</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>0</key>
 						<dict>
 							<key>name</key>
-							<string>comment.syntax.nim</string>
+							<string>punctuation.section.embedded.end.nim</string>
+						</dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>source.asm</string>
 						</dict>
 					</dict>
+					<key>name</key>
+					<string>meta.embedded.block.asm</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -409,8 +483,26 @@
 			<string>(tmpl(i)?)(?=( (html|xml|js|css|glsl|md))?""")</string>
 		</dict>
 		<dict>
-			<key>name</key>
-			<string>source.html.embedded.nim</string>
+			<key>begin</key>
+			<string>(^\s*)?(?=html""")</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.whitespace.embedded.leading.nim</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(?!\G)(\s*$\n?)?</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.whitespace.embedded.trailing.nim</string>
+				</dict>
+			</dict>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -421,24 +513,33 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>storage.type.function.nim</string>
+							<string>keyword.other.nim</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>comment.syntax.nim</string>
+							<string>punctuation.section.embedded.begin.nim</string>
 						</dict>
 					</dict>
+					<key>contentName</key>
+					<string>text.html</string>
 					<key>end</key>
-					<string>"""</string>
+					<string>(")""</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>0</key>
 						<dict>
 							<key>name</key>
-							<string>comment.syntax.nim</string>
+							<string>punctuation.section.embedded.end.nim</string>
+						</dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>text.html</string>
 						</dict>
 					</dict>
+					<key>name</key>
+					<string>meta.embedded.block.html</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -530,15 +631,33 @@
 						</dict>
 						<dict>
 							<key>include</key>
-							<string>text.xml</string>
+							<string>text.html</string>
 						</dict>
 					</array>
 				</dict>
 			</array>
 		</dict>
 		<dict>
-			<key>name</key>
-			<string>source.xml.embedded.nim</string>
+			<key>begin</key>
+			<string>(^\s*)?(?=xml""")</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.whitespace.embedded.leading.nim</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(?!\G)(\s*$\n?)?</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.whitespace.embedded.trailing.nim</string>
+				</dict>
+			</dict>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -549,24 +668,33 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>storage.type.function.nim</string>
+							<string>keyword.other.nim</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>comment.syntax.nim</string>
+							<string>punctuation.section.embedded.begin.nim</string>
 						</dict>
 					</dict>
+					<key>contentName</key>
+					<string>text.xml</string>
 					<key>end</key>
-					<string>"""</string>
+					<string>(")""</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>0</key>
 						<dict>
 							<key>name</key>
-							<string>comment.syntax.nim</string>
+							<string>punctuation.section.embedded.end.nim</string>
+						</dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>text.xml</string>
 						</dict>
 					</dict>
+					<key>name</key>
+					<string>meta.embedded.block.xml</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -665,8 +793,26 @@
 			</array>
 		</dict>
 		<dict>
-			<key>name</key>
-			<string>source.js.embedded.nim</string>
+			<key>begin</key>
+			<string>(^\s*)?(?=js""")</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.whitespace.embedded.leading.nim</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(?!\G)(\s*$\n?)?</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.whitespace.embedded.trailing.nim</string>
+				</dict>
+			</dict>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -677,24 +823,33 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>storage.type.function.nim</string>
+							<string>keyword.other.nim</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>comment.syntax.nim</string>
+							<string>punctuation.section.embedded.begin.nim</string>
 						</dict>
 					</dict>
+					<key>contentName</key>
+					<string>source.js</string>
 					<key>end</key>
-					<string>"""</string>
+					<string>(")""</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>0</key>
 						<dict>
 							<key>name</key>
-							<string>comment.syntax.nim</string>
+							<string>punctuation.section.embedded.end.nim</string>
+						</dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>source.js</string>
 						</dict>
 					</dict>
+					<key>name</key>
+					<string>meta.embedded.block.js</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -793,8 +948,26 @@
 			</array>
 		</dict>
 		<dict>
-			<key>name</key>
-			<string>source.css.embedded.nim</string>
+			<key>begin</key>
+			<string>(^\s*)?(?=css""")</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.whitespace.embedded.leading.nim</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(?!\G)(\s*$\n?)?</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.whitespace.embedded.trailing.nim</string>
+				</dict>
+			</dict>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -805,24 +978,33 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>storage.type.function.nim</string>
+							<string>keyword.other.nim</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>comment.syntax.nim</string>
+							<string>punctuation.section.embedded.begin.nim</string>
 						</dict>
 					</dict>
+					<key>contentName</key>
+					<string>source.css</string>
 					<key>end</key>
-					<string>"""</string>
+					<string>(")""</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>0</key>
 						<dict>
 							<key>name</key>
-							<string>comment.syntax.nim</string>
+							<string>punctuation.section.embedded.end.nim</string>
+						</dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>source.css</string>
 						</dict>
 					</dict>
+					<key>name</key>
+					<string>meta.embedded.block.css</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -921,8 +1103,26 @@
 			</array>
 		</dict>
 		<dict>
-			<key>name</key>
-			<string>source.glsl.embedded.nim</string>
+			<key>begin</key>
+			<string>(^\s*)?(?=glsl""")</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.whitespace.embedded.leading.nim</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(?!\G)(\s*$\n?)?</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.whitespace.embedded.trailing.nim</string>
+				</dict>
+			</dict>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -933,24 +1133,33 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>storage.type.function.nim</string>
+							<string>keyword.other.nim</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>comment.syntax.nim</string>
+							<string>punctuation.section.embedded.begin.nim</string>
 						</dict>
 					</dict>
+					<key>contentName</key>
+					<string>source.glsl</string>
 					<key>end</key>
-					<string>"""</string>
+					<string>(")""</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>0</key>
 						<dict>
 							<key>name</key>
-							<string>comment.syntax.nim</string>
+							<string>punctuation.section.embedded.end.nim</string>
+						</dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>source.glsl</string>
 						</dict>
 					</dict>
+					<key>name</key>
+					<string>meta.embedded.block.glsl</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -1049,8 +1258,26 @@
 			</array>
 		</dict>
 		<dict>
-			<key>name</key>
-			<string>source.markdown.embedded.nim</string>
+			<key>begin</key>
+			<string>(^\s*)?(?=md""")</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.whitespace.embedded.leading.nim</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(?!\G)(\s*$\n?)?</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.whitespace.embedded.trailing.nim</string>
+				</dict>
+			</dict>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -1061,24 +1288,33 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>storage.type.function.nim</string>
+							<string>keyword.other.nim</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>comment.syntax.nim</string>
+							<string>punctuation.section.embedded.begin.nim</string>
 						</dict>
 					</dict>
+					<key>contentName</key>
+					<string>text.html.markdown</string>
 					<key>end</key>
-					<string>"""</string>
+					<string>(")""</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>0</key>
 						<dict>
 							<key>name</key>
-							<string>comment.syntax.nim</string>
+							<string>punctuation.section.embedded.end.nim</string>
+						</dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>text.html.markdown</string>
 						</dict>
 					</dict>
+					<key>name</key>
+					<string>meta.embedded.block.html.markdown</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -1170,7 +1406,7 @@
 						</dict>
 						<dict>
 							<key>include</key>
-							<string>text.html.markdown.multimarkdown</string>
+							<string>text.html.markdown</string>
 						</dict>
 					</array>
 				</dict>
