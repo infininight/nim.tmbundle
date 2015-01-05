@@ -254,20 +254,52 @@
 		<dict>
 			<key>begin</key>
 			<string>"""</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.nim</string>
+				</dict>
+			</dict>
 			<key>comment</key>
 			<string>(Raw) Triple Quoted String</string>
 			<key>end</key>
 			<string>"""</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.nim</string>
+				</dict>
+			</dict>
 			<key>name</key>
 			<string>string.quoted.triple.nim</string>
 		</dict>
 		<dict>
 			<key>begin</key>
 			<string>r"</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.nim</string>
+				</dict>
+			</dict>
 			<key>comment</key>
 			<string>Raw Double Quoted String</string>
 			<key>end</key>
 			<string>"</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.nim</string>
+				</dict>
+			</dict>
 			<key>name</key>
 			<string>string.quoted.double.raw.nim</string>
 			<key>patterns</key>
@@ -281,18 +313,26 @@
 		<dict>
 			<key>begin</key>
 			<string>"</string>
-			<key>captures</key>
+			<key>beginCaptures</key>
 			<dict>
-				<key>1</key>
+				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>storage.type.function.nim</string>
+					<string>punctuation.definition.string.begin.nim</string>
 				</dict>
 			</dict>
 			<key>comment</key>
 			<string>Double Quoted String</string>
 			<key>end</key>
 			<string>"</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.nim</string>
+				</dict>
+			</dict>
 			<key>name</key>
 			<string>string.quoted.double.nim</string>
 			<key>patterns</key>
@@ -304,10 +344,23 @@
 			</array>
 		</dict>
 		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.nim</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.nim</string>
+				</dict>
+			</dict>
 			<key>comment</key>
 			<string>Single quoted character literal</string>
 			<key>match</key>
-			<string>'(\\\d{1,3}|\\?[^\n]?)'</string>
+			<string>(')(\\\d{1,3}|\\?[^\n]?)(')</string>
 			<key>name</key>
 			<string>string.quoted.single.nim</string>
 		</dict>
