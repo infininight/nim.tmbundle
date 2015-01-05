@@ -106,7 +106,7 @@
 							<key>match</key>
 							<string>(\b(converter|generic|interface|lambda|mixin|out|shared|with|without)\b)</string>
 							<key>name</key>
-							<string>keyword.invalid.nim_filter</string>
+							<string>invalid.illegal.invalid-keyword.nim_filter</string>
 						</dict>
 						<dict>
 							<key>comment</key>
@@ -138,7 +138,7 @@
 							<key>match</key>
 							<string>\b(echo|newException)\b</string>
 							<key>name</key>
-							<string>keyword.function.nim_filter</string>
+							<string>keyword.other.function.nim_filter</string>
 						</dict>
 						<dict>
 							<key>comment</key>
