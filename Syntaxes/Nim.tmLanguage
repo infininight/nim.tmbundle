@@ -260,6 +260,14 @@
 			<string>storage.type.generic.nim</string>
 		</dict>
 		<dict>
+			<key>comment</key>
+			<string>Other constants.</string>
+			<key>match</key>
+			<string>\b[A-Z][A-Z0-9_]+\b</string>
+			<key>name</key>
+			<string>support.constant.nim</string>
+		</dict>
+		<dict>
 			<key>include</key>
 			<string>#string_quoted_triple</string>
 		</dict>
