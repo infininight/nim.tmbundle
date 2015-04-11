@@ -345,6 +345,33 @@
 		</dict>
 		<dict>
 			<key>begin</key>
+			<string>\{\.</string>
+			<key>end</key>
+			<string>\.\}</string>
+			<key>name</key>
+			<string>meta.preprocessor.nim</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#string_quoted_triple</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#string_quoted_double_raw</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#string_quoted_double</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#string_quoted_single</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
 			<string>(^\s*)?(?=asm """)</string>
 			<key>beginCaptures</key>
 			<dict>
