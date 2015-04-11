@@ -252,117 +252,20 @@
 			<string>storage.type.generic.nim</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>"""</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.nim</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>(Raw) Triple Quoted String</string>
-			<key>end</key>
-			<string>"""</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.nim</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.triple.nim</string>
+			<key>include</key>
+			<string>#string_quoted_triple</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>r"</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.nim</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>Raw Double Quoted String</string>
-			<key>end</key>
-			<string>"</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.nim</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.double.raw.nim</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>match</key>
-					<string>""</string>
-				</dict>
-			</array>
+			<key>include</key>
+			<string>#string_quoted_double_raw</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>"</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.nim</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>Double Quoted String</string>
-			<key>end</key>
-			<string>"</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.nim</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.double.nim</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>match</key>
-					<string>(\\([abenrclftv\\]|["']|[0-9])|x\h\h)</string>
-				</dict>
-			</array>
+			<key>include</key>
+			<string>#string_quoted_double</string>
 		</dict>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.nim</string>
-				</dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.nim</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>Single quoted character literal</string>
-			<key>match</key>
-			<string>(')(\\\d{1,3}|\\?[^\n]?)(')</string>
-			<key>name</key>
-			<string>string.quoted.single.nim</string>
+			<key>include</key>
+			<string>#string_quoted_single</string>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -1466,6 +1369,126 @@
 			</array>
 		</dict>
 	</array>
+	<key>repository</key>
+	<dict>
+		<key>string_quoted_double</key>
+		<dict>
+			<key>begin</key>
+			<string>"</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.nim</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Double Quoted String</string>
+			<key>end</key>
+			<string>"</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.nim</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.double.nim</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>(\\([abenrclftv\\]|["']|[0-9])|x\h\h)</string>
+				</dict>
+			</array>
+		</dict>
+		<key>string_quoted_double_raw</key>
+		<dict>
+			<key>begin</key>
+			<string>r"</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.nim</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Raw Double Quoted String</string>
+			<key>end</key>
+			<string>"</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.nim</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.double.raw.nim</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>""</string>
+				</dict>
+			</array>
+		</dict>
+		<key>string_quoted_single</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.nim</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.nim</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Single quoted character literal</string>
+			<key>match</key>
+			<string>(')(\\\d{1,3}|\\?[^\n]?)(')</string>
+			<key>name</key>
+			<string>string.quoted.single.nim</string>
+		</dict>
+		<key>string_quoted_triple</key>
+		<dict>
+			<key>begin</key>
+			<string>"""</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.nim</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>(Raw) Triple Quoted String</string>
+			<key>end</key>
+			<string>"""</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.nim</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.triple.nim</string>
+		</dict>
+	</dict>
 	<key>scopeName</key>
 	<string>source.nim</string>
 	<key>uuid</key>
