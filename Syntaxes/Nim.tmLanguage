@@ -127,7 +127,7 @@
 			<key>comment</key>
 			<string>A float literal</string>
 			<key>match</key>
-			<string>\b((\d[_\d]*\.[_\d]+([eE][\+\-]?\d[_\d]*)?)|([eE][\+\-]?\d[_\d]*))('[fF](32|64))?</string>
+			<string>\b\d[_\d]*((\.[_\d]+([eE][\+\-]?\d[_\d]*)?)|([eE][\+\-]?\d[_\d]*))('[fF](32|64))?</string>
 			<key>name</key>
 			<string>constant.numeric.float.decimal.nim</string>
 		</dict>
