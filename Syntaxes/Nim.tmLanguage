@@ -239,7 +239,7 @@
 			<key>comment</key>
 			<string>Built-in, generic types.</string>
 			<key>match</key>
-			<string>\b(range|array|seq|tuple|natural|set|ref|ptr)\b</string>
+			<string>\b(range|array|seq|tuple|natural|set|ref|ptr|pointer)\b</string>
 			<key>name</key>
 			<string>storage.type.generic.nim</string>
 		</dict>
