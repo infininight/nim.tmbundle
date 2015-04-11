@@ -165,6 +165,14 @@
 		</dict>
 		<dict>
 			<key>comment</key>
+			<string>Operator as function name</string>
+			<key>match</key>
+			<string>(?&lt;=\`)[^\` ]+(?=\`)</string>
+			<key>name</key>
+			<string>entity.name.function.nim</string>
+		</dict>
+		<dict>
+			<key>comment</key>
 			<string>Language Constants.</string>
 			<key>match</key>
 			<string>\b(true|false|inf|nil)\b</string>
