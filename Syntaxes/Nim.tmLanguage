@@ -140,7 +140,7 @@
 			<key>comment</key>
 			<string>A hexadecimal literal</string>
 			<key>match</key>
-			<string>\b(0[xX]\h[_\h]*)('[iIuU](8|16|32|64))?</string>
+			<string>\b(0[xX]\h[_\h]*)('(([iIuUfF](8|16|32|64))|[uU]))?</string>
 			<key>name</key>
 			<string>constant.numeric.integer.hexadecimal.nim</string>
 		</dict>
@@ -148,7 +148,7 @@
 			<key>comment</key>
 			<string>A base-8 integer literal</string>
 			<key>match</key>
-			<string>\b(0o[0-7][_0-7]*)('[iIuUfF](8|16|32|64))?</string>
+			<string>\b(0o[0-7][_0-7]*)('(([iIuUfF](8|16|32|64))|[uU]))?</string>
 			<key>name</key>
 			<string>constant.numeric.integer.octal.nim</string>
 		</dict>
@@ -156,7 +156,7 @@
 			<key>comment</key>
 			<string>A base-2 integer literal</string>
 			<key>match</key>
-			<string>\b(0(b|B)[01][_01]*)('[iIuUfF](8|16|32|64))?</string>
+			<string>\b(0(b|B)[01][_01]*)('(([iIuUfF](8|16|32|64))|[uU]))?</string>
 			<key>name</key>
 			<string>constant.numeric.integer.binary.nim</string>
 		</dict>
@@ -164,7 +164,7 @@
 			<key>comment</key>
 			<string>A base-10 integer literal</string>
 			<key>match</key>
-			<string>\b(\d[_\d]*)('[iIuUfF](8|16|32|64))?</string>
+			<string>\b(\d[_\d]*)('(([iIuUfF](8|16|32|64))|[uU]))?</string>
 			<key>name</key>
 			<string>constant.numeric.integer.decimal.nim</string>
 		</dict>
