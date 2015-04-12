@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>saveModifiedFiles</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby18 -wKU
+require "#{ENV["TM_SUPPORT_PATH"]}/lib/escape"
+require "#{ENV["TM_SUPPORT_PATH"]}/lib/tm/executor"
+require "#{ENV["TM_SUPPORT_PATH"]}/lib/tm/save_current_document"
+
+TextMate.save_if_untitled('nim')
+TextMate::Executor.make_project_master_current_document
+
+# FIXME: calling private method here
+def linkify_file_references(string)
+  TextMate::Executor.send(:linkify_file_references, string, ENV['TM_PROJECT_DIRECTORY'] || ENV['TM_DIRECTORY'] || ENV['HOME'])
+end
+
+TextMate::Executor.run(e_sh(ENV['TM_NIM']), 'c', '-d:release', '-r', ENV['TM_FILEPATH']) do |str, type|
+  "&lt;span class=\"err\"&gt;#{linkify_file_references(str)}&lt;/span&gt;" if type == :out and str.gsub!(/^(.*?)\((\d+), (\d+)\) Error: (.*)$/, '\1:\2:\3: Error: \4')
+end
+</string>
+	<key>input</key>
+	<string>none</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>@R</string>
+	<key>name</key>
+	<string>Run Nim (Release)</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>newWindow</string>
+	<key>requiredCommands</key>
+	<array>
+		<dict>
+			<key>command</key>
+			<string>nim</string>
+			<key>locations</key>
+			<array>
+				<string>/usr/local/nim/bin/nim</string>
+				<string>/opt/nim/bin/nim</string>
+				<string>/usr/local/nim</string>
+			</array>
+			<key>moreInfoURL</key>
+			<string>http://nim-lang.org/download.html</string>
+			<key>variable</key>
+			<string>TM_NIM</string>
+		</dict>
+	</array>
+	<key>scope</key>
+	<string>source.nim</string>
+	<key>semanticClass</key>
+	<string>process.run.script.nim</string>
+	<key>uuid</key>
+	<string>B57222E7-01D0-412D-AFB6-97748F0A74AD</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>

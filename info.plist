@@ -12,5 +12,16 @@
 	<string>Nim</string>
 	<key>uuid</key>
 	<string>126B2BEF-74BC-4D2F-907F-95C4A05A7A04</string>
+	<key>mainMenu</key>
+	<dict>
+		<key>items</key>
+		<array>
+			<string>DA37BA5B-1507-466D-965D-B93D4F2AA7ED</string>
+			<string>B57222E7-01D0-412D-AFB6-97748F0A74AD</string>
+			<string>------------------------------------</string>
+			<string>CB521318-0217-462F-88D6-77AC83736D49</string>
+			<string>DDAE8EAE-909F-48DB-A3E3-439F77E3D5B6</string>
+		</array>
+	</dict>
 </dict>
 </plist>
