@@ -312,6 +312,10 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#string_quoted_triple_raw</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#string_quoted_triple</string>
 		</dict>
 		<dict>
@@ -1674,7 +1678,7 @@
 				</dict>
 			</dict>
 			<key>comment</key>
-			<string>(Raw) Triple Quoted String</string>
+			<string>Triple Quoted String</string>
 			<key>end</key>
 			<string>"""</string>
 			<key>endCaptures</key>
@@ -1687,6 +1691,33 @@
 			</dict>
 			<key>name</key>
 			<string>string.quoted.triple.nim</string>
+		</dict>
+		<key>string_quoted_triple_raw</key>
+		<dict>
+			<key>begin</key>
+			<string>r"""</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.nim</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Raw Triple Quoted String</string>
+			<key>end</key>
+			<string>"""</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.nim</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.triple.raw.nim</string>
 		</dict>
 	</dict>
 	<key>scopeName</key>
