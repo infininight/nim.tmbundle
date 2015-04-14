@@ -18,7 +18,7 @@ def linkify_file_references(string)
   TextMate::Executor.send(:linkify_file_references, string, ENV['TM_PROJECT_DIRECTORY'] || ENV['TM_DIRECTORY'] || ENV['HOME'])
 end
 
-TextMate::Executor.run(e_sh(ENV['TM_NIM']), 'c', '-d:release', '-r', ENV['TM_FILEPATH']) do |str, type|
+TextMate::Executor.run(e_sh(ENV['TM_NIM']), 'c', (ENV['TM_NIM_FLAGS'] || '').split(','), '-d:release', '-r', ENV['TM_FILEPATH']) do |str, type|
   "&lt;span class=\"err\"&gt;#{linkify_file_references(str)}&lt;/span&gt;" if type == :out and str.gsub!(/^(.*?)\((\d+), (\d+)\) Error: (.*)$/, '\1:\2:\3: Error: \4')
 end
 </string>
