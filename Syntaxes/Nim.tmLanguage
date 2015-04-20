@@ -218,7 +218,7 @@
 			<key>comment</key>
 			<string>Generic operators for expressions.</string>
 			<key>match</key>
-			<string>(\b()\b|(=|\+|-|\*|/|&lt;|&gt;|@|\$|~|&amp;|%|!|\?|\^|\.|:|\\)+)</string>
+			<string>(=|\+|-|\*|/|&lt;|&gt;|@|\$|~|&amp;|%|!|\?|\^|\.|:|\\)+</string>
 			<key>name</key>
 			<string>keyword.operator.nim</string>
 		</dict>
