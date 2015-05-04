@@ -124,7 +124,7 @@
 			<key>comment</key>
 			<string>A discarded triple string literal comment</string>
 			<key>end</key>
-			<string>"""</string>
+			<string>"""(?!")</string>
 			<key>name</key>
 			<string>comment.line.discarded.nim</string>
 		</dict>
@@ -372,7 +372,7 @@
 					<key>contentName</key>
 					<string>source.c</string>
 					<key>end</key>
-					<string>(")""(\.\})?</string>
+					<string>(")""(?!")(\.\})?</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>0</key>
@@ -475,7 +475,7 @@
 					<key>contentName</key>
 					<string>source.asm</string>
 					<key>end</key>
-					<string>(")""</string>
+					<string>(")""(?!")</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>0</key>
@@ -570,7 +570,7 @@
 					<key>contentName</key>
 					<string>text.html</string>
 					<key>end</key>
-					<string>(")""</string>
+					<string>(")""(?!")</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>0</key>
@@ -725,7 +725,7 @@
 					<key>contentName</key>
 					<string>text.xml</string>
 					<key>end</key>
-					<string>(")""</string>
+					<string>(")""(?!")</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>0</key>
@@ -880,7 +880,7 @@
 					<key>contentName</key>
 					<string>source.js</string>
 					<key>end</key>
-					<string>(")""</string>
+					<string>(")""(?!")</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>0</key>
@@ -1035,7 +1035,7 @@
 					<key>contentName</key>
 					<string>source.css</string>
 					<key>end</key>
-					<string>(")""</string>
+					<string>(")""(?!")</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>0</key>
@@ -1190,7 +1190,7 @@
 					<key>contentName</key>
 					<string>source.glsl</string>
 					<key>end</key>
-					<string>(")""</string>
+					<string>(")""(?!")</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>0</key>
@@ -1345,7 +1345,7 @@
 					<key>contentName</key>
 					<string>text.html.markdown</string>
 					<key>end</key>
-					<string>(")""</string>
+					<string>(")""(?!")</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>0</key>
@@ -1680,7 +1680,7 @@
 			<key>comment</key>
 			<string>Triple Quoted String</string>
 			<key>end</key>
-			<string>"""</string>
+			<string>"""(?!")</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -1707,7 +1707,7 @@
 			<key>comment</key>
 			<string>Raw Triple Quoted String</string>
 			<key>end</key>
-			<string>"""</string>
+			<string>"""(?!")</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
