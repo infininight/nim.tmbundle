@@ -282,7 +282,7 @@
 			<key>comment</key>
 			<string>Other constants.</string>
 			<key>match</key>
-			<string>\b[A-Z][A-Z0-9_]+\b</string>
+			<string>\b[A-Z0-9\x{80}-\x{FF}](_?[A-Z0-9\x{80}-\x{FF}])*\b</string>
 			<key>name</key>
 			<string>support.constant.nim</string>
 		</dict>
@@ -290,7 +290,7 @@
 			<key>comment</key>
 			<string>Other types.</string>
 			<key>match</key>
-			<string>\b[A-Z]\w+\b</string>
+			<string>\b[A-Z](_?[A-Za-z0-9\x{80}-\x{FF}])*\b</string>
 			<key>name</key>
 			<string>support.type.nim</string>
 		</dict>
@@ -298,7 +298,7 @@
 			<key>comment</key>
 			<string>Function call.</string>
 			<key>match</key>
-			<string>\b\w+\b(?=\()</string>
+			<string>\b[A-Za-z0-9\x{80}-\x{FF}](_?[A-Za-z0-9\x{80}-\x{FF}])*\b(?=\()</string>
 			<key>name</key>
 			<string>support.function.any-method.nim</string>
 		</dict>
@@ -306,7 +306,7 @@
 			<key>comment</key>
 			<string>Dot access.</string>
 			<key>match</key>
-			<string>(?&lt;=\b\.)\b\w+</string>
+			<string>(?&lt;=\b\.)\b[A-Za-z0-9\x{80}-\x{FF}](_?[A-Za-z0-9\x{80}-\x{FF}])*</string>
 			<key>name</key>
 			<string>variable.other.dot-access.nim</string>
 		</dict>
@@ -671,7 +671,7 @@
 						</dict>
 						<dict>
 							<key>match</key>
-							<string>(?&lt;!\$)(\$\w+)</string>
+							<string>(?&lt;!\$)(\$[A-Za-z0-9\x{80}-\x{FF}](_?[A-Za-z0-9\x{80}-\x{FF}])*)</string>
 							<key>name</key>
 							<string>keyword.operator.nim</string>
 						</dict>
@@ -826,7 +826,7 @@
 						</dict>
 						<dict>
 							<key>match</key>
-							<string>(?&lt;!\$)(\$\w+)</string>
+							<string>(?&lt;!\$)(\$[A-Za-z0-9\x{80}-\x{FF}](_?[A-Za-z0-9\x{80}-\x{FF}])*)</string>
 							<key>name</key>
 							<string>keyword.operator.nim</string>
 						</dict>
@@ -981,7 +981,7 @@
 						</dict>
 						<dict>
 							<key>match</key>
-							<string>(?&lt;!\$)(\$\w+)</string>
+							<string>(?&lt;!\$)(\$[A-Za-z0-9\x{80}-\x{FF}](_?[A-Za-z0-9\x{80}-\x{FF}])*)</string>
 							<key>name</key>
 							<string>keyword.operator.nim</string>
 						</dict>
@@ -1136,7 +1136,7 @@
 						</dict>
 						<dict>
 							<key>match</key>
-							<string>(?&lt;!\$)(\$\w+)</string>
+							<string>(?&lt;!\$)(\$[A-Za-z0-9\x{80}-\x{FF}](_?[A-Za-z0-9\x{80}-\x{FF}])*)</string>
 							<key>name</key>
 							<string>keyword.operator.nim</string>
 						</dict>
@@ -1291,7 +1291,7 @@
 						</dict>
 						<dict>
 							<key>match</key>
-							<string>(?&lt;!\$)(\$\w+)</string>
+							<string>(?&lt;!\$)(\$[A-Za-z0-9\x{80}-\x{FF}](_?[A-Za-z0-9\x{80}-\x{FF}])*)</string>
 							<key>name</key>
 							<string>keyword.operator.nim</string>
 						</dict>
@@ -1446,7 +1446,7 @@
 						</dict>
 						<dict>
 							<key>match</key>
-							<string>(?&lt;!\$)(\$\w+)</string>
+							<string>(?&lt;!\$)(\$[A-Za-z0-9\x{80}-\x{FF}](_?[A-Za-z0-9\x{80}-\x{FF}])*)</string>
 							<key>name</key>
 							<string>keyword.operator.nim</string>
 						</dict>
